@@ -1,51 +1,45 @@
-const Persona1 ={
-    nombre:"David",
-    edad:21,
+const alumno ={
+    nombre:"Esteban",
+    telefono:677435737574,
+    curso:"tercero",
     amigos:[
         {
-            nombre:"Pepe",
-            edad:21,
+            nombre:"Manuel",
+            telefono:657575756765,
+            curso:"tercero",
         },
         {
-            nombre:"Paco",
-            edad:20,
+            nombre:"Bruno",
+            telefono:6577547574,
+            curso:"tercero",
         }
     ],
 }
-const Persona2 ={
-    nombre:"David",
-    edad:21,
+const mismoalumno ={
+   nombre:"Esteban",
+    telefono:677435737574,
+    curso:"tercero",
     amigos:[
         {
-            nombre:"Pepe",
-            edad:21,
+            nombre:"Manuel",
+            telefono:657575756765,
+            curso:"tercero",
         },
         {
-            nombre:"Paco",
-            edad:20,
+            nombre:"Bruno",
+            telefono:6577547574,
+            curso:"tercero",
         }
     ],
 }
 
-const vehiculo={
-    marca:"Toyota",
-    ruedas:4,
+const profesor={
+    nombre:"Alberto",
+    telefono:6783483534,
+    sueldo:3000,
 }
 
-const Persona3 ={
-    nombre:"David",
-    edad:21,
-    amigos:[
-        {
-            nombre:"Pepe",
-            edad:21,
-        },
-        {
-            nombre:"Paco",
-            edad:20,
-        }
-    ],
-}
+
 
 //Funcion para imprimir cualquier objeto
 
@@ -67,11 +61,11 @@ const DeepPrint=(ob: object):void=>{
         
     })
 }
-
+//imprimimos por pantalla los datos
 console.log("Imprimiendo");
 
-DeepPrint(vehiculo);
-DeepPrint(Persona1);
+DeepPrint(alumno);
+DeepPrint(profesor);
 
 //Funcion para clonar un objeto
 
@@ -90,7 +84,7 @@ const DeepClone=function (ob:object):object {
      return obClone;//Una vez terminada la recursividad devolvemos el objeto
 }
 
-const clone =DeepClone(Persona1);
+const clone =DeepClone(alumno); //Clonamos el alumno
 
 //Funcion para comparar todos los valores de dos objetos
 
@@ -118,9 +112,9 @@ var DeepEqual=(ob1:object,ob2:Object):boolean=>{
     return equal;
 }
 
-console.log(DeepEqual(vehiculo,Persona1)); //Deberia salir false
-console.log(DeepEqual(Persona1,Persona3)); //Deberia salir true
-console.log(DeepEqual(clone,Persona1));  //Deberia salir true y ademas asi comprobar que se ha clonado perfectamente
+console.log(DeepEqual(profesor,alumno)); //Deberia salir false
+console.log(DeepEqual(alumno,mismoalumno)); //Deberia salir true
+console.log(DeepEqual(clone,alumno));  //Deberia salir true y ademas asi comprobar que se ha clonado perfectamente
 
 
 
