@@ -46,17 +46,13 @@ const DeepPrint=(ob: object):void=>{
     Object.keys(ob).forEach(atrib=>{
         if(atrib in ob){
             if(typeof ob[atrib as keyof typeof ob]==='object'){
-                console.log(atrib+": ");
-                
+                console.log(atrib+": ");               
                 //Utilizamos recursividad
                 DeepPrint(ob[atrib as keyof typeof ob])
             }else{
             console.log(atrib+": "+ob[atrib as keyof typeof ob]);
-            }
-            
-        }
-        
-        
+            }            
+        }                
     })
 }
 
@@ -71,18 +67,17 @@ const DeepClone=function (ob:object):object {
          return ob;
      }
      const obClone=ob.constructor()
-     
-
      for(var elements in ob){
          obClone[elements]= DeepClone(ob[elements as keyof typeof ob])//Utilizamos recursividad para poder clonar cada elemento del objeto
      }
      return obClone;
 }
 
-const clone =DeepClone(alumno); //Clonamos el alumno
+//Clonamos el alumno
+const clone =DeepClone(alumno); 
 
 //Funcion para comparar todos los valores de dos objetos
-var DeepEqual=(ob1:object,ob2:Object):boolean=>{
+const DeepEqual=(ob1:object,ob2:Object):boolean=>{
     let equal:boolean=false;
     if(ob1===ob2){
         equal=true;
@@ -91,7 +86,6 @@ var DeepEqual=(ob1:object,ob2:Object):boolean=>{
             equal= false
         }else{
             for(const elements in ob1) {
-
                 if(ob2.hasOwnProperty(elements)){
                     equal=DeepEqual(ob1[elements as keyof typeof ob1],ob2[elements as keyof typeof ob2]);
                 }else{
