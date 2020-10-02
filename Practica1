@@ -46,11 +46,11 @@ const DeepPrint=(ob: object):void=>{
     Object.keys(ob).forEach(atrib=>{
         if(atrib in ob){
             if(typeof ob[atrib as keyof typeof ob]==='object'){
-                console.log(atrib + ": ");               
+                console.log(atrib+": ");               
                 //Utilizamos recursividad
                 DeepPrint(ob[atrib as keyof typeof ob])
             }else{
-            console.log(atrib + ": "+ob[atrib as keyof typeof ob]);
+            console.log(atrib+": "+ob[atrib as keyof typeof ob]);
             }            
         }                
     })
@@ -67,7 +67,7 @@ const DeepClone=function (ob:object):object {
          return ob;
      }
      const obClone=ob.constructor()
-     for(const elements in ob){
+     for(var elements in ob){
          obClone[elements]= DeepClone(ob[elements as keyof typeof ob])//Utilizamos recursividad para poder clonar cada elemento del objeto
      }
      return obClone;
@@ -104,7 +104,3 @@ const DeepEqual=(ob1:object,ob2:Object):boolean=>{
 console.log(DeepEqual(profesor,alumno)); //Deberia salir false
 console.log(DeepEqual(alumno,mismoalumno)); //Deberia salir true
 console.log(DeepEqual(clone,alumno));  //Deberia salir true y ademas asi comprobar que se ha clonado perfectamente
-
-
-
-
