@@ -100,6 +100,11 @@ const DeepEqual=(ob1:object,ob2:Object):boolean=>{
     return equal;
 }
 
+//Comprobamos si son identicos los objetos a comparar
 console.log(DeepEqual(profesor,alumno)); //Deberia salir false
 console.log(DeepEqual(alumno,mismoalumno)); //Deberia salir true
 console.log(DeepEqual(clone,alumno));  //Deberia salir true y ademas asi comprobar que se ha clonado perfectamente
+
+
+
+
