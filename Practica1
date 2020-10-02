@@ -1,3 +1,5 @@
+//En esta practica debemos crear 3 funciones DeepPrint, DeepClone y DeepEqual.
+
 const alumno ={
     nombre:"Esteban",
     telefono:677435737574,
@@ -39,11 +41,7 @@ const profesor={
     sueldo:3000,
 }
 
-
-
 //Funcion para imprimir cualquier objeto
-
-
 const DeepPrint=(ob: object):void=>{
     Object.keys(ob).forEach(atrib=>{
         if(atrib in ob){
@@ -61,33 +59,29 @@ const DeepPrint=(ob: object):void=>{
         
     })
 }
-//imprimimos por pantalla los datos
-console.log("Imprimiendo");
 
+//Imprimimos por pantalla los datos
+console.log("Imprimiendo");
 DeepPrint(alumno);
 DeepPrint(profesor);
 
 //Funcion para clonar un objeto
-
 const DeepClone=function (ob:object):object {
      if(typeof ob!=='object'){
-        //En caso de que a no sea un objeto se retorna
-
          return ob;
      }
-     const obClone=ob.constructor()//mediante
+     const obClone=ob.constructor()
      
 
      for(var elements in ob){
-         obClone[elements]= DeepClone(ob[elements as keyof typeof ob])//mediante recursividad iremos clonando cada elemento
+         obClone[elements]= DeepClone(ob[elements as keyof typeof ob])//Utilizamos recursividad para poder clonar cada elemento del objeto
      }
-     return obClone;//Una vez terminada la recursividad devolvemos el objeto
+     return obClone;
 }
 
 const clone =DeepClone(alumno); //Clonamos el alumno
 
 //Funcion para comparar todos los valores de dos objetos
-
 var DeepEqual=(ob1:object,ob2:Object):boolean=>{
     let equal:boolean=false;
     if(ob1===ob2){
@@ -115,7 +109,3 @@ var DeepEqual=(ob1:object,ob2:Object):boolean=>{
 console.log(DeepEqual(profesor,alumno)); //Deberia salir false
 console.log(DeepEqual(alumno,mismoalumno)); //Deberia salir true
 console.log(DeepEqual(clone,alumno));  //Deberia salir true y ademas asi comprobar que se ha clonado perfectamente
-
-
-
-
